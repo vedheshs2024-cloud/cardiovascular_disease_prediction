@@ -20,7 +20,7 @@ st.header("Spotify Songs’ Genre Segmentation")
 st.text("Jupyter NoteBook Link ")
 st.link_button("Open Jupyter program", "https://drive.google.com/file/d/1Sd8sgctUG41YtGz4qSucUguM0v_MNA-b/view?usp=drivesdk")
 
-df = pd.read_csv(r"D:\blender\cardio_train (1).csv", sep=';')
+df = pd.read_csv(r"cardio_train (1).csv", sep=';')
 
 
 
@@ -150,3 +150,4 @@ def prediction(idi,age,gender,height,weight,ap_hi,ap_lo,cholesterol,gluc,smoke,a
         st.write("Sorry! you have cardiovascular_disease")
 
 prediction(idi,age,gender,height,weight,ap_hi,ap_lo,cholesterol,gluc,smoke,alco,active)
+
