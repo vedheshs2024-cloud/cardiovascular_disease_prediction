@@ -84,7 +84,7 @@ plt.title("Age distribution (in years)")
 plt.xlabel("Age (years)")
 st.pyplot(fog)
 
-
+st.subheader("---Correlation Matrix---")
 corr = df.corr()
 fig  = plt.figure(figsize=(12,10))
 sns.heatmap(corr, annot=True, cmap='coolwarm')
@@ -136,18 +136,20 @@ with col11:
     alco = st.number_input("Alcohol(No:0,Yes:1):")
 with col12:
     active = st.number_input("Active(No:0,Yes:1):")
- 
-def prediction(idi,age,gender,height,weight,ap_hi,ap_lo,cholesterol,gluc,smoke,alco,active):
-    value = [[idi,age,gender,height,weight,ap_hi,ap_lo,cholesterol,gluc,smoke,alco,active]]
-    value_1 = pd.DataFrame(value)
+f = st.button("submit")
+if f:
+    def prediction(idi,age,gender,height,weight,ap_hi,ap_lo,cholesterol,gluc,smoke,alco,active):
+        value = [[idi,age,gender,height,weight,ap_hi,ap_lo,cholesterol,gluc,smoke,alco,active]]
+        value_1 = pd.DataFrame(value)
+        
+        x_value = scalar.fit_transform(value_1)
+        y_value = model_1.predict(x_value)
+        st.write("cardiovascular_disease_presiction:")
+        if y_value == 0:
+            st.write("Be Happy you don't have cardiovascular_disease")
+        if y_value == 1:
+            st.write("Sorry! you have cardiovascular_disease")
     
-    x_value = scalar.fit_transform(value_1)
-    y_value = model_1.predict(x_value)
-    st.write("cardiovascular_disease_presiction:")
-    if y_value == 0:
-        st.write("Be Happy you don't have cardiovascular_disease")
-    if y_value == 1:
-        st.write("Sorry! you have cardiovascular_disease")
+    prediction(idi,age,gender,height,weight,ap_hi,ap_lo,cholesterol,gluc,smoke,alco,active)
 
-prediction(idi,age,gender,height,weight,ap_hi,ap_lo,cholesterol,gluc,smoke,alco,active)
 
