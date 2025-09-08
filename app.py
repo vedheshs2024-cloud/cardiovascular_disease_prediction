@@ -15,7 +15,7 @@ from sklearn.preprocessing import PolynomialFeatures
 
 
 st.set_page_config(page_title = "Major Project")
-st.header("Spotify Songs’ Genre Segmentation")
+st.header("Cardiovascular_disease_prediction")
 
 st.text("Jupyter NoteBook Link ")
 st.link_button("Open Jupyter program", "https://drive.google.com/file/d/1Sd8sgctUG41YtGz4qSucUguM0v_MNA-b/view?usp=drivesdk")
@@ -113,18 +113,18 @@ with col2:
 with col3:
     gender = st.number_input("Gender(1:Male,2:Female):")
 with col4:
-    height = st.number_input("Height:")
+    height = st.number_input("Height:(cm)")
 
 col5,col6,col7,col8 = st.columns(4)
 
 with col5:
-    weight = st.number_input("Weight:")
+    weight = st.number_input("Weight(kg):")
 with col6:
     ap_hi = st.number_input("Ap_hi:")
 with col7:
     ap_lo = st.number_input("Ap_lo:")
 with col8:
-    cholesterol = st.number_input("Cholesterol(No:0,Yes:1):")
+    cholesterol = st.number_input("Cholesterol(1,2,3):")
 
 col9,col10,col11,col12 = st.columns(4)
 
@@ -151,5 +151,6 @@ if f:
             st.write("Sorry! you have cardiovascular_disease")
     
     prediction(idi,age,gender,height,weight,ap_hi,ap_lo,cholesterol,gluc,smoke,alco,active)
+
 
 
